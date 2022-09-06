@@ -1,0 +1,812 @@
+{
+    "name": "GM Tools holder",
+    "players": [
+        {
+            "player": "yong",
+            "characterName": "Tanyl",
+            "buffs": [],
+            "debuffs": [],
+            "defenses": {
+                "ac": 14,
+                "fort": 3,
+                "reflex": 4,
+                "will": 7,
+                "perception": 5
+            },
+            "skills": [
+                {
+                    "name": "acrobatics",
+                    "value": -3,
+                    "level": "U"
+                },
+                {
+                    "name": "arcana",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "athletics",
+                    "value": 3,
+                    "level": "T"
+                },
+                {
+                    "name": "crafting",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "deception",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "diplomacy",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "intimidation",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "medicine",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "nature",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "occultism",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "performance",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "religion",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "society",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "stealth",
+                    "value": -3,
+                    "level": "U"
+                },
+                {
+                    "name": "survival",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "thievery",
+                    "value": -3,
+                    "level": "u"
+                },
+                {
+                    "name": "mercantile lore",
+                    "value": 4,
+                    "level": "U"
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "str",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "dex",
+                    "value": 8,
+                    "mod": -1
+                },
+                {
+                    "name": "con",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "int",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "wis",
+                    "value": 18,
+                    "mod": 4
+                },
+                {
+                    "name": "cha",
+                    "value": 12,
+                    "mod": 1
+                }
+            ]
+        },
+        {
+            "player": "thomas",
+            "characterName": "Unach the Gray",
+            "buffs": [
+                {
+                    "name": "Forbidding Ward",
+                    "bonus": 1,
+                    "is_heightenable": true,
+                    "height_bonus": 2
+                }
+            ],
+            "debuffs": [],
+            "defenses": {
+                "ac": 18,
+                "fort": 7,
+                "reflex": 7,
+                "will": 2,
+                "perception": 4
+            },
+            "skills": [
+                {
+                    "name": "acrobatics",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "arcana",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "athletics",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "crafting",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "deception",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "diplomacy",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "intimidation",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "medicine",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "nature",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "occultism",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "performance",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "religion",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "society",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "stealth",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "survival",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "thievery",
+                    "value": 5,
+                    "level": "u"
+                },
+                {
+                    "name": "sarenrae lore",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "settlement lore",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "undead lore",
+                    "value": 5,
+                    "level": "T"
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "str",
+                    "value": 18,
+                    "mod": 4
+                },
+                {
+                    "name": "dex",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "con",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "int",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "wis",
+                    "value": 9,
+                    "mod": -1
+                },
+                {
+                    "name": "cha",
+                    "value": 8,
+                    "mod": -1
+                }
+            ]
+        },
+        {
+            "player": "billy",
+            "characterName": "Snaggol Bitterbrew",
+            "defenses": {
+                "ac": 17,
+                "fort": 7,
+                "reflex": 9,
+                "will": 5,
+                "perception": 7
+            },
+            "skills": [
+                {
+                    "name": "acrobatics",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "arcana",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "athletics",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "crafting",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "deception",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "diplomacy",
+                    "value": 2,
+                    "level": "T"
+                },
+                {
+                    "name": "intimidation",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "medicine",
+                    "value": 5,
+                    "level": "t"
+                },
+                {
+                    "name": "nature",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "occultism",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "performance",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "religion",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "society",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "stealth",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "survival",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "thievery",
+                    "value": 4,
+                    "level": "U"
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "str",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "dex",
+                    "value": 18,
+                    "mod": 4
+                },
+                {
+                    "name": "con",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "int",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "wis",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "cha",
+                    "value": 8,
+                    "mod": -1
+                }
+            ]
+        },
+        {
+            "player": "janelle",
+            "characterName": "Jorunn",
+            "buffs": [],
+            "debuffs": [],
+            "defenses": {
+                "ac": 18,
+                "fort": 7,
+                "reflex": 9,
+                "will": 4,
+                "perception": 6
+            },
+            "skills": [
+                {
+                    "name": "acrobatics",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "arcana",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "athletics",
+                    "value": 6,
+                    "level": "T"
+                },
+                {
+                    "name": "crafting",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "deception",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "diplomacy",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "intimidation",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "medicine",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "nature",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "occultism",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "performance",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "religion",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "society",
+                    "value": 3,
+                    "level": "T"
+                },
+                {
+                    "name": "stealth",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "survival",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "thievery",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "scouting lore",
+                    "value": 3,
+                    "level": "T"
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "str",
+                    "value": 16,
+                    "mod": 3
+                },
+                {
+                    "name": "dex",
+                    "value": 18,
+                    "mod": 4
+                },
+                {
+                    "name": "con",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "int",
+                    "value": 10,
+                    "mod": 0
+                },
+                {
+                    "name": "wis",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "cha",
+                    "value": 10,
+                    "mod": 0
+                }
+            ]
+        },
+        {
+            "player": "nick",
+            "characterName": "Hapuq",
+            "buffs": [],
+            "debuffs": [],
+            "defenses": {
+                "ac": 16,
+                "fort": 5,
+                "reflex": 4,
+                "will": 7,
+                "perception": 5
+            },
+            "skills": [
+                {
+                    "name": "acrobatics",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "arcana",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "athletics",
+                    "value": -1,
+                    "level": "U"
+                },
+                {
+                    "name": "crafting",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "deception",
+                    "value": 3,
+                    "level": "U"
+                },
+                {
+                    "name": "diplomacy",
+                    "value": 6,
+                    "level": "T"
+                },
+                {
+                    "name": "intimidation",
+                    "value": 6,
+                    "level": "T"
+                },
+                {
+                    "name": "medicine",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "nature",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "occultism",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "performance",
+                    "value": 6,
+                    "level": "T"
+                },
+                {
+                    "name": "religion",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "society",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "stealth",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "survival",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "thievery",
+                    "value": 0,
+                    "level": "U"
+                },
+                {
+                    "name": "boneyard lore",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "tengu lore",
+                    "value": 4,
+                    "level": "T"
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "str",
+                    "value": 10,
+                    "mod": 0
+                },
+                {
+                    "name": "dex",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "con",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "int",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "wis",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "cha",
+                    "value": 16,
+                    "mod": 3
+                }
+            ]
+        },
+        {
+            "player": "alex",
+            "characterName": "Gwydd",
+            "buffs": [],
+            "debuffs": [],
+            "defenses": {
+                "ac": 15,
+                "fort": 5,
+                "reflex": 4,
+                "will": 7,
+                "perception": 5
+            },
+            "skills": [
+                {
+                    "name": "acrobatics",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "arcana",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "athletics",
+                    "value": 0,
+                    "level": "T"
+                },
+                {
+                    "name": "crafting",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "deception",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "diplomacy",
+                    "value": 4,
+                    "level": "T"
+                },
+                {
+                    "name": "intimidation",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "medicine",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "nature",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "occultism",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "performance",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "religion",
+                    "value": 2,
+                    "level": "U"
+                },
+                {
+                    "name": "society",
+                    "value": 7,
+                    "level": "T"
+                },
+                {
+                    "name": "stealth",
+                    "value": 1,
+                    "level": "U"
+                },
+                {
+                    "name": "survival",
+                    "value": 5,
+                    "level": "T"
+                },
+                {
+                    "name": "thievery",
+                    "value": 4,
+                    "level": "U"
+                },
+                {
+                    "name": "engineering lore",
+                    "value": 7,
+                    "level": "T"
+                }
+            ],
+            "abilities": [
+                {
+                    "name": "str",
+                    "value": 10,
+                    "mod": 0
+                },
+                {
+                    "name": "dex",
+                    "value": 12,
+                    "mod": 1
+                },
+                {
+                    "name": "con",
+                    "value": 10,
+                    "mod": 0
+                },
+                {
+                    "name": "int",
+                    "value": 18,
+                    "mod": 4
+                },
+                {
+                    "name": "wis",
+                    "value": 14,
+                    "mod": 2
+                },
+                {
+                    "name": "cha",
+                    "value": 12,
+                    "mod": 1
+                }
+            ]
+        }
+    ]
+}

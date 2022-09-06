@@ -1,0 +1,11 @@
+{
+    "name": "bonuses",
+    "list": [
+        {
+            "name": "Forbidding Ward",
+            "bonus": 1,
+            "is_heightenable": true,
+            "height_bonus": 2
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+This folder is needed for holding json downloaded from herolab

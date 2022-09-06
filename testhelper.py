@@ -17,14 +17,14 @@ class TestHerolab(unittest.TestCase):
         self.assertGreater(len(status),0)
     
     def test_load_user_token(self):
-        access_Token = self.func.load_user_token()
-        print("accessToken:", access_Token)
-        self.assertIsNotNone(access_Token)
+        access_token = self.func.load_user_token()
+        print("accessToken:", access_token)
+        self.assertIsNotNone(access_token)
     
     def test_load_uu_campaign(self):
-        campaign_Token = self.func.load_campaign()
-        print("CampaignToken:", campaign_Token)
-        self.assertIsNotNone(campaign_Token)
+        campaign_token = self.func.load_campaign()
+        print("CampaignToken:", campaign_token)
+        self.assertIsNotNone(campaign_token)
     
     def test_load_uuu_load_campaign_roster(self):
         self.func.load_user_token()

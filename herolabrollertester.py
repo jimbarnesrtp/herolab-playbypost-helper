@@ -37,6 +37,10 @@ class TestHeroLabRoller(unittest.TestCase):
     def test_skill_check(self):
         self.func.roll_skill_check("Gwydd")
         self.assertTrue(True)
+    
+    def test_get_stats(self):
+        self.func.get_stats("Jorunn")
+        self.assertTrue(True)
         
 
 if __name__ == '__main__':

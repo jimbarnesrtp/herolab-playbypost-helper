@@ -93,6 +93,18 @@ class Roller:
                 holder[items[key]['name']] = items[key]
                 
         return holder
+    
+    def get_weapons(self, name):
+        print("In get weapons")
+        #nw wp
+        
+    def get_special_abilities(self, name):
+        print("In special abilities")
+        #ab 
+    
+    def get_feats(self, name):
+        print(" in get feats")
+        #ft
 
     
 def main():

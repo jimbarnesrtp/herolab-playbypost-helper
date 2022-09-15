@@ -129,23 +129,29 @@ class Roller:
             current_num += 1
     
     def iterate_over_attacks(self, attacks: dict, name):
-        attack_roll = attacks['first']['modifier'] + self.generate_random_roll(20)
-        damage_roll = self.generate_random_roll(attacks['first']['damage_die']) + attacks['first']['damage_modifier']
-        print(name, " rolled a ", attack_roll, " and if it hits it does , ", damage_roll)
+        attack_roll = self.generate_random_roll(20)
+        attack_total = attacks['first']['modifier'] + attack_roll
+        damage_roll = self.generate_random_roll(attacks['first']['damage_die'])
+        damage_total =  damage_roll + attacks['first']['damage_modifier']
+        print(name, " rolled a ", attack_roll, "for a total of:",attack_total, " and if it hits it does , ", damage_total, " from a roll of ", damage_roll, " and modifier:", attacks['first']['damage_modifier'])
         print("Do you want to do a second attack?")
         second_rep = input().lower()
         if second_rep == "y":
-            attack_roll = attacks['second']['modifier'] + self.generate_random_roll(20)
-            damage_roll = self.generate_random_roll(attacks['second']['damage_die']) + attacks['second']['damage_modifier']
-            print(name, " rolled a ", attack_roll, " and if it hits it does , ", damage_roll)
+            attack_roll = self.generate_random_roll(20)
+            attack_total = attacks['second']['modifier'] + attack_roll
+            damage_roll = self.generate_random_roll(attacks['second']['damage_die'])
+            damage_total =  damage_roll + attacks['second']['damage_modifier']
+            print(name, " rolled a ", attack_roll, "for a total of:",attack_total, " and if it hits it does , ", damage_total, " from a roll of ", damage_roll, " and modifier:", attacks['second']['damage_modifier'])
         else:
             return
         print("Do you want to do a third attack?")
         third_rep = input().lower()
         if third_rep == "y":
-            attack_roll = attacks['third']['modifier'] + self.generate_random_roll(20)
-            damage_roll = self.generate_random_roll(attacks['third']['damage_die']) + attacks['third']['damage_modifier']
-            print(name, " rolled a ", attack_roll, " and if it hits it does , ", damage_roll)
+            attack_roll = self.generate_random_roll(20)
+            attack_total = attacks['third']['modifier'] + attack_roll
+            damage_roll = self.generate_random_roll(attacks['third']['damage_die'])
+            damage_total =  damage_roll + attacks['third']['damage_modifier']
+            print(name, " rolled a ", attack_roll, "for a total of:",attack_total, " and if it hits it does , ", damage_total, " from a roll of ", damage_roll, " and modifier:", attacks['third']['damage_modifier'])
         else:
             return
         
@@ -207,7 +213,7 @@ class Roller:
 
     
 def main():
-    print("What do you want to do? (S)ingle Roll, (I)nitiative, (Sa)ve, (Sk)ill Check, (AS)Ability Scores")
+    print("What do you want to do? (S)ingle Roll, (I)nitiative, (Sa)ve, (Sk)ill Check, (AS)Ability Scores, (W)eapon Attacks")
     roll_static = "What player do you want to roll for?"
     x = input().upper()
     rl = Roller()
@@ -233,6 +239,10 @@ def main():
         print(roll_static)
         y = input().lower()
         rl.get_stats(y)
+    elif x = "W":
+        print(roll_static)
+        y = input().lower()
+        rl.handle_attack(y)
         
         
        

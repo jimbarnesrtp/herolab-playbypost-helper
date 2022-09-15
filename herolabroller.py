@@ -1,12 +1,13 @@
 import random
 import json
+import re
 
 class Roller:
 
     characters = {}
     
-    def generate_random_roll(self):
-        a = random.randint(1,20)
+    def generate_random_roll(self, bound):
+        a = random.randint(1,bound)
         return a
         
     
@@ -34,7 +35,7 @@ class Roller:
             print("Initiative for ", character['export']['actors']['actor.1']['name'], "is ", total, "from ", roll, " + ",  perception)
     
     def roll_save(self, name):
-        roll = self.generate_random_roll()
+        roll = self.generate_random_roll(20)
         character = self.get_character(name)
         saves = self.get_item_by_type_for_character(character['export']['actors']['actor.1']['items'], "sv")
         print("What Save are you wanting to roll on? (R)eflex, (F)ortitude, (W)ill")
@@ -52,7 +53,7 @@ class Roller:
     
     
     def roll_skill_check(self, name):
-        roll = self.generate_random_roll()
+        roll = self.generate_random_roll(20)
         character = self.get_character(name)
         print("What skill do you want to check?")
         skills = self.get_item_by_type_for_character(character['export']['actors']['actor.1']['items'], "sk")
@@ -68,7 +69,7 @@ class Roller:
         
 
     def single_roll(self, name):
-        roll = self.generate_random_roll()
+        roll = self.generate_random_roll(20)
         
         print("Roll for ", name, " is ", roll)
         return roll
@@ -94,15 +95,113 @@ class Roller:
                 
         return holder
     
-    def get_weapons(self, name):
+    def handle_attack(self, name: str):
         print("In get weapons")
         #nw wp
+        character = self.get_character(name)
+        print("Stats for ", name)
+        items = character['export']['actors']['actor.1']['items']
+        #as is for ability score
+        weapons = self.get_item_by_type_for_character(items, "wp")
         
-    def get_special_abilities(self, name):
+        weapon_names = []
+        for key in weapons.keys():
+            weapon_names.append(weapons[key]['name'])
+        
+        print("Which Weapon do you want to roll on? ")
+        count = 1
+        for weapon_name in weapon_names:
+            print(count, ":", weapon_name)
+            count += 1
+                    
+        weapon_num = int(input().lower())
+        current_num = 1
+        for key in weapons.keys():
+            if weapon_num == current_num:
+                count = weapons[key]['useInPlay'].count("Strikes")
+                attack_type = None
+                if count == 2:
+                    print("This weapon can be used in (M)elee or (R)anged, which are you using?")
+                    attack_type = input().upper()
+                attacks = self.parse_attacks(weapons[key]['useInPlay'], attack_type)
+                self.iterate_over_attacks(attacks, name)
+                
+            current_num += 1
+    
+    def iterate_over_attacks(self, attacks: dict, name):
+        attack_roll = attacks['first']['modifier'] + self.generate_random_roll(20)
+        damage_roll = self.generate_random_roll(attacks['first']['damage_die']) + attacks['first']['damage_modifier']
+        print(name, " rolled a ", attack_roll, " and if it hits it does , ", damage_roll)
+        print("Do you want to do a second attack?")
+        second_rep = input().lower()
+        if second_rep == "y":
+            attack_roll = attacks['second']['modifier'] + self.generate_random_roll(20)
+            damage_roll = self.generate_random_roll(attacks['second']['damage_die']) + attacks['second']['damage_modifier']
+            print(name, " rolled a ", attack_roll, " and if it hits it does , ", damage_roll)
+        else:
+            return
+        print("Do you want to do a third attack?")
+        third_rep = input().lower()
+        if third_rep == "y":
+            attack_roll = attacks['third']['modifier'] + self.generate_random_roll(20)
+            damage_roll = self.generate_random_roll(attacks['third']['damage_die']) + attacks['third']['damage_modifier']
+            print(name, " rolled a ", attack_roll, " and if it hits it does , ", damage_roll)
+        else:
+            return
+        
+        
+    def parse_attacks(self, attacks: str, attack_type):
+        parsed_attacks = {}
+        
+        roll_matches = re.findall(".\d \/ .\d \/ .\d", attacks)
+        damage_matches = re.findall("\dd\d+[/+/-]?\d?", attacks)
+        print("Damage:", damage_matches)
+        if attack_type is None or attack_type == "M":
+            parsed_attacks = self.parse_attack_match(roll_matches[0])
+            parsed_attacks = self.add_damage_to_attacks(parsed_attacks, damage_matches[0])
+        elif attack_type == "R":
+            parsed_attacks = self.parse_attack_match(roll_matches[1])
+            parsed_attacks = self.add_damage_to_attacks(parsed_attacks, damage_matches[1])
+
+        
+        return parsed_attacks
+    
+    def add_damage_to_attacks(self, parsed_attacks: dict, damage_match: str):
+        die = re.findall("d\d+", damage_match)[0].replace("d","")
+        modifier_find = re.findall("[/+-]\d", damage_match)
+        if len(modifier_find) == 0:
+            modifier = 0
+        else:
+            modifier = int(modifier_find[0])
+        
+        for key in parsed_attacks.keys():
+            parsed_attacks[key]['damage_die'] = int(die)
+            parsed_attacks[key]['damage_modifier'] = modifier
+        return parsed_attacks
+        
+    
+    def parse_attack_match(self, match: str) -> list :
+        parsed_attacks = {}
+        attack_names = ['first', 'second', 'third']
+        ats = match.split("/")
+        
+        count = 0
+        for attack in ats:
+            
+            attack_dict = {}
+            attack_dict['modifier'] = int(attack)
+            parsed_attacks[attack_names[count]] = attack_dict
+            count += 1
+        return parsed_attacks
+                    
+                
+            
+        
+    def handle_special_ability(self, name: str):
         print("In special abilities")
         #ab 
     
-    def get_feats(self, name):
+    def list_feats(self, name):
         print(" in get feats")
         #ft
 

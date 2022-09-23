@@ -1,7 +1,6 @@
 from herolab import HeroLabHelper
 from os.path import exists
 import json
-from herolabroller import Roller
 import os
 
 

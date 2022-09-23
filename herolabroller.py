@@ -1,10 +1,23 @@
 import random
 import json
 import re
+from playbyposthelper import PlayByPostHelper
+
 
 class Roller:
+    
+    helper = None
 
     characters = {}
+    
+    def load_characters(self):
+        self.helper = PlayByPostHelper()
+        self.helper.check_data()
+        self.helper.load_user_token()
+        self.helper.load_campaign()
+        self.helper.load_campaign_roster()
+        self.characters = self.helper.check_and_load_characters()
+
     
     def generate_random_roll(self, bound):
         a = random.randint(1,bound)
@@ -96,10 +109,8 @@ class Roller:
         return holder
     
     def handle_attack(self, name: str):
-        print("In get weapons")
         #nw wp
         character = self.get_character(name)
-        print("Stats for ", name)
         items = character['export']['actors']['actor.1']['items']
         #as is for ability score
         weapons = self.get_item_by_type_for_character(items, "wp")
@@ -125,7 +136,7 @@ class Roller:
                     attack_type = input().upper()
                 attacks = self.parse_attacks(weapons[key]['useInPlay'], attack_type)
                 self.iterate_over_attacks(attacks, name)
-                
+                return
             current_num += 1
     
     def iterate_over_attacks(self, attacks: dict, name):
@@ -186,7 +197,7 @@ class Roller:
         return parsed_attacks
         
     
-    def parse_attack_match(self, match: str) -> list :
+    def parse_attack_match(self, match: str) -> dict :
         parsed_attacks = {}
         attack_names = ['first', 'second', 'third']
         ats = match.split("/")
@@ -206,49 +217,108 @@ class Roller:
     def handle_special_ability(self, name: str):
         print("In special abilities")
         #ab 
+        character = self.get_character(name)
+        items = character['export']['actors']['actor.1']['items']
+        #as is for ability score
+        abilities = self.get_item_by_type_for_character(items, "ab")
+        
+        ability_names = []
+        for key in abilities.keys():
+            ability_names.append(abilities[key]['name'])
+        
+        print("Which ability do you want to see? ")
+        count = 1
+        for ability_name in ability_names:
+            print(count, ":", ability_name)
+            count += 1
+                    
+        ability_num = int(input().lower())
+        current_num = 1
+        for key in abilities.keys():
+            if ability_num == current_num:
+                
+                print(abilities[key]['name'])
+                print(abilities[key]['description'])
+            current_num += 1
     
     def list_feats(self, name):
         print(" in get feats")
         #ft
 
+        character = self.get_character(name)
+        items = character['export']['actors']['actor.1']['items']
+        #as is for ability score
+        feats = self.get_item_by_type_for_character(items, "ft")
+        
+        feat_names = []
+        for key in feats.keys():
+            feat_names.append(feats[key]['name'])
+        
+        print("Which ability do you want to see? ")
+        count = 1
+        for feat_name in feat_names:
+            print(count, ":", feat_name)
+            count += 1
+                    
+        ability_num = int(input().lower())
+        current_num = 1
+        for key in feats.keys():
+            if ability_num == current_num:
+                
+                print(feats[key]['name'])
+                print(feats[key]['description'])
+            current_num += 1
+    
+    def get_character_name(self):
+        roll_static = "What player do you want to roll for?"
+        print(roll_static)
+        current_num = 1
+        for character in self.characters['characters']:
+            print(current_num, ":", character['export']['actors']['actor.1']['name'])
+            current_num += 1
+            
+        y = int(input().lower())
+        print("Chosen = ", y)
+        current_num = 1
+        for character in self.characters['characters']:
+            if current_num == y:
+                return character['export']['actors']['actor.1']['name']
+            current_num += 1
+        
     
 def main():
-    print("What do you want to do? (S)ingle Roll, (I)nitiative, (Sa)ve, (Sk)ill Check, (AS)Ability Scores, (W)eapon Attacks")
-    roll_static = "What player do you want to roll for?"
+    print("What do you want to do? (S)ingle Roll, (I)nitiative, (Sa)ve, (Sk)ill Check, (AS)Ability Scores, (W)eapon Attacks, (SP)ecial Ability, (FT)Feats")
+
     x = input().upper()
     rl = Roller()
-    rl.load_rolls()
     rl.load_characters()
     
+    
+    
     if x == "S":
-        print(roll_static)
-        y = input().lower()
-        rl.single_roll(y)
+        name = rl.get_character_name()
+        rl.single_roll(name)
     elif x == "I":
         
         rl.roll_initiative()
     elif x == "SA":
-        print(roll_static)
-        y = input().lower()
-        rl.roll_save(y)
+        name = rl.get_character_name()
+        rl.roll_save(name)
     elif x == "SK":
-        print(roll_static)
-        y = input().lower()
-        rl.roll_skill_check(y)
+        name = rl.get_character_name()
+        rl.roll_skill_check(name)
     elif x == "AS":
-        print(roll_static)
-        y = input().lower()
-        rl.get_stats(y)
-    elif x = "W":
-        print(roll_static)
-        y = input().lower()
-        rl.handle_attack(y)
-        
-        
-       
-    rl.write_file()
-    
-
+        name = rl.get_character_name()
+        rl.get_stats(name)
+    elif x == "W":
+        name = rl.get_character_name()
+        rl.handle_attack(name)
+    elif x == "SP":
+        name = rl.get_character_name()
+        rl.handle_special_ability(name)
+    elif x == "FT":
+        name = rl.get_character_name()
+        rl.list_feats(name)
 
 if __name__ == '__main__':
     main()
